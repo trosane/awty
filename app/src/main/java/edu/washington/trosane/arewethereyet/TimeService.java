@@ -8,7 +8,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.lang.Runnable;
 import android.widget.Toast;
-import android.content.Context;
 
 public class TimeService extends Service {
     public static final int INTERVAL = MainActivity.getTime() * 60000;
