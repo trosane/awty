@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Are We There Yet?</string>
+
+    <string name="messageText">Enter the message you want to send:</string>
+    <string name="phoneMessage">Enter the phone to want to send to:</string>
+    <string name="timeMessage">Enter the time between each message (in minutes):</string>
+    <string name="action_settings">Settings</string>
+    <string name="messageHint">Blah blah blah</string>
+    <string name="phoneHint">123-456-7890</string>
+    <string name="timeHint">any number higher than zero (e.g. 8)</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+</resources>
