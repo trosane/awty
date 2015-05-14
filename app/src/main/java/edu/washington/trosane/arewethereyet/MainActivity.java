@@ -15,7 +15,7 @@ public class MainActivity extends ActionBarActivity {
     TextView messageText;
     TextView phoneText;
     TextView timeText;
-    static int timeInt;
+    static int time;
     static String toastMessage;
     EditText editTextMessage, editTextPhone, editTextTime;
     Intent start;
@@ -41,11 +41,15 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onClick(View view) {
-                String timeString = editTextTime.getText().toString();
+                if (editTextTime.getText().toString().equals("")) {
+                    time = 0;
+                } else {
+                    time = Integer.parseInt(editTextTime.getText().toString());
+                }
                 toastMessage = editTextPhone.getText().toString();
                 if (startButton.getText().toString().equals("Start")) {
                     if (validateMessage(editTextMessage.getText().toString()) && validatePhoneNumber
-                            (editTextPhone.getText().toString()) && validateTime(timeString)) {
+                            (editTextPhone.getText().toString()) && validateTime(time)) {
                         startButton.setText("Stop");
                         startService(start);
                     }
@@ -100,9 +104,8 @@ public class MainActivity extends ActionBarActivity {
     }
 
     // returns true if the time is greater than zero, false if not
-    public static boolean validateTime(String time) {
-        timeInt = Integer.parseInt(time);
-        if (timeInt > 0) {
+    public static boolean validateTime(int time) {
+        if (time > 0) {
             return true;
         } else {
             return false;
@@ -110,7 +113,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public static int getTime() {
-        return timeInt;
+        return time;
     }
 
     public static String getToast() {
