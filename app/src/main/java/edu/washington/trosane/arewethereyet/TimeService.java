@@ -8,6 +8,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.lang.Runnable;
 import android.widget.Toast;
+import android.telephony.SmsManager;
 
 public class TimeService extends Service {
     public static final int INTERVAL = MainActivity.getTime() * 60000;
@@ -46,7 +47,8 @@ public class TimeService extends Service {
 
                 @Override
                 public void run() {
-                    Toast.makeText(getApplicationContext(), MainActivity.getToast(), Toast.LENGTH_SHORT).show();
+                    SmsManager smsManager = SmsManager.getDefault();
+                    smsManager.sendTextMessage(MainActivity.getPhoneNo(), null, MainActivity.getSMS(), null, null);
                 }
             });
         }

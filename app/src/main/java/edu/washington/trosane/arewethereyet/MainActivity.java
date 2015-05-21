@@ -16,7 +16,8 @@ public class MainActivity extends ActionBarActivity {
     TextView phoneText;
     TextView timeText;
     static int time;
-    static String toastMessage;
+    static String phoneNo;
+    static String sms;
     EditText editTextMessage, editTextPhone, editTextTime;
     Intent start;
 
@@ -46,7 +47,8 @@ public class MainActivity extends ActionBarActivity {
                 } else {
                     time = Integer.parseInt(editTextTime.getText().toString());
                 }
-                toastMessage = editTextPhone.getText().toString();
+                phoneNo = editTextPhone.getText().toString();
+                sms = editTextMessage.getText().toString();
                 if (startButton.getText().toString().equals("Start")) {
                     if (validateMessage(editTextMessage.getText().toString()) && validatePhoneNumber
                             (editTextPhone.getText().toString()) && validateTime(time)) {
@@ -116,7 +118,9 @@ public class MainActivity extends ActionBarActivity {
         return time;
     }
 
-    public static String getToast() {
-        return toastMessage + ": Are we there yet?";
+    public static String getPhoneNo() {
+        return phoneNo;
     }
+
+    public static String getSMS() {return sms;}
 }
